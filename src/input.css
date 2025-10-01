@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components {
+  .cell {
+    @apply bg-stone-200 rounded-lg flex items-center justify-center text-4xl border-b border-r;
+  }
+}

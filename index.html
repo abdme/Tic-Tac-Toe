@@ -3,8 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="public/output.css" />
   </head>
-  <body></body>
-  <script></script>
+  <body class="bg-amber-50 text-stone-700">
+    <div
+      class="h-screen w-screen flex flex-col items-center justify-center space-y-10"
+    >
+      <header class="header">
+        <h2 class="font-bold text-4xl">Tic Tac Toe</h2>
+      </header>
+      <div class="status font-semibold text-2xl"></div>
+      <div class="result font-semibold text-2xl"></div>
+      <div
+        class="grid grid-cols-3 grid-rows-3 gap-2 w-80 h-80 divide-x divide-y border-4 p-2 hover:cursor-pointer rounded-2xl pointer-events-none"
+        id="board"
+      >
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+      </div>
+      <button
+        class="bg-amber-50 border-2 border-black p-4 rounded-2xl hover:cursor-pointer font-semibold js-start"
+      >
+        Start
+      </button>
+      <button
+        class="bg-amber-50 border-2 border-black p-4 rounded-2xl hover:cursor-pointer font-semibold js-reset"
+      >
+        Reset
+      </button>
+      <div class="js-results font-bold text-3xl"></div>
+    </div>
+  </body>
+  <script src="TicTacToe.js"></script>
 </html>

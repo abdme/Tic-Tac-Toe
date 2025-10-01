@@ -1,0 +1,25 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "A tic tac toe game with a simple minimalistic design that lets a user and also computer play against each other",
+  "main": "TicTacToe.js",
+  "scripts": {
+    "build-css": "npx @tailwindcss/cli -i src/input.css -o public/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdme/Tic-Tac-Toe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/abdme/Tic-Tac-Toe/issues"
+  },
+  "homepage": "https://github.com/abdme/Tic-Tac-Toe#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "tailwindcss": "^4.1.13"
+  }
+}
