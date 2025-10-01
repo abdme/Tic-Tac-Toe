@@ -67,15 +67,27 @@ function start() {
   const startBtn = document.querySelector(".js-start");
   startBtn.innerHTML = "Stop";
   startBtn.classList.add("js-stop");
+  startBtn.classList.remove("js-start");
   const boardUI = document.querySelector("#board");
   boardUI.classList.remove("pointer-events-none");
+  const stopBtn = document.querySelector(".js-stop");
+  stopBtn.addEventListener("click", () => stop());
 }
 
 function stop() {
-  console.log("Clicked");
   status.innerHTML = "Game has been Stopped";
+  setTimeout(() => {
+    status.innerHTML = "";
+  }, 1000);
+  outcome = true;
+  resultCheck();
   const boardUI = document.querySelector("#board");
   boardUI.classList.add("pointer-events-none");
+  const stopBtn = document.querySelector(".js-stop");
+  stopBtn.innerHTML = "Start";
+  stopBtn.classList.remove("js-stop");
+  stopBtn.classList.add("js-start");
+  stopBtn.addEventListener("click", () => start());
 }
 
 function checkStatus() {
@@ -109,6 +121,11 @@ function resultCheck() {
     outcome = true;
     const board = document.querySelector("#board");
     board.classList.add("pointer-events-none");
+    const stopBtn = document.querySelector(".js-stop");
+    stopBtn.innerHTML = "Start";
+    stopBtn.classList.add("js-start");
+    stopBtn.classList.remove("js-stop");
+
     if (lastIndex == "X") {
       status.innerHTML = "";
       results.innerHTML = "You Won the game!!! ✨";
@@ -129,7 +146,7 @@ function reset() {
     status.innerHTML = "Game has been Rest";
     setTimeout(() => {
       status.innerHTML = "";
-    }, 3000);
+    }, 1500);
     const boardUI = document.querySelector("#board");
     boardUI.classList.remove("pointer-events-none");
     const cells = document.querySelectorAll(".cell");
@@ -147,9 +164,3 @@ startBtn.addEventListener("click", () => start());
 
 const resetBtn = document.querySelector(".js-reset");
 resetBtn.addEventListener("click", () => reset());
-
-if (startBtn.classList.contains("js-stop")) {
-  console.log("True");
-  const stopBtn = document.querySelector(".js-stop");
-  stopBtn.addEventListener("click", () => stop());
-}
