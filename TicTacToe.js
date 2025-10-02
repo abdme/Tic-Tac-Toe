@@ -38,6 +38,8 @@ function currentMove() {
   }
 }
 function userMove(index) {
+  const boardUI = document.querySelector("#board");
+  boardUI.classList.add("pointer-events-none");
   index = parseInt(index);
   if (board[index] != null && turn == "X") {
     status.innerHTML = "This box already taken, Try Again!";
@@ -53,6 +55,8 @@ function userMove(index) {
 
 function computerMove() {
   movePlaced = false;
+  const boardUI = document.querySelector("#board");
+  boardUI.classList.remove("pointer-events-none");
   while (!movePlaced) {
     index = Math.floor(Math.random() * 9);
     if (board[index] === null) {
@@ -77,7 +81,9 @@ function start() {
   startBtn.classList.add("js-stop");
   startBtn.classList.remove("js-start");
   const boardUI = document.querySelector("#board");
-  boardUI.classList.remove("pointer-events-none");
+  if (turn == "X") {
+    boardUI.classList.remove("pointer-events-none");
+  }
 }
 
 function stop() {
