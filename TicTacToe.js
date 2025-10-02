@@ -138,12 +138,12 @@ function resultCheck() {
 
     if (lastIndex == "X") {
       status.innerHTML = "";
-      results.innerHTML = "You Won the game!!! ✨";
-      results.classList.add("text-yellow-400 animate-pulse drop-shadow-lg");
+      result.innerHTML = "You Won the game!!! ✨";
+      result.classList.add("text-yellow-400 animate-pulse drop-shadow-lg");
     } else if (lastIndex == "O") {
       status.innerHTML = "";
-      results.innerHTML = "You Lost!! 😔";
-      results.classList.add("text-gray-500 opacity-70");
+      result.innerHTML = "You Lost!! 😔";
+      result.classList.add("text-gray-500 opacity-70");
     }
   }
 }
