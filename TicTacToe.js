@@ -7,6 +7,15 @@ let outcome = false;
 const status = document.querySelector(".status");
 const results = document.querySelector(".js-results");
 
+const startBtn = document.querySelector(".js-start");
+startBtn.addEventListener("click", () => {
+  if (startBtn.classList.contains("js-start")) {
+    start();
+  } else if (startBtn.classList.contains("js-stop")) {
+    stop();
+  }
+});
+
 function currentMove() {
   if (turn == undefined) {
     const pick = Math.random();
@@ -64,14 +73,11 @@ function start() {
     cell.addEventListener("click", () => userMove(cell.dataset.index));
   });
   currentMove();
-  const startBtn = document.querySelector(".js-start");
   startBtn.innerHTML = "Stop";
   startBtn.classList.add("js-stop");
   startBtn.classList.remove("js-start");
   const boardUI = document.querySelector("#board");
   boardUI.classList.remove("pointer-events-none");
-  const stopBtn = document.querySelector(".js-stop");
-  stopBtn.addEventListener("click", () => stop());
 }
 
 function stop() {
@@ -83,11 +89,9 @@ function stop() {
   resultCheck();
   const boardUI = document.querySelector("#board");
   boardUI.classList.add("pointer-events-none");
-  const stopBtn = document.querySelector(".js-stop");
-  stopBtn.innerHTML = "Start";
-  stopBtn.classList.remove("js-stop");
-  stopBtn.classList.add("js-start");
-  stopBtn.addEventListener("click", () => start());
+  startBtn.innerHTML = "Start";
+  startBtn.classList.remove("js-stop");
+  startBtn.classList.add("js-start");
 }
 
 function checkStatus() {
@@ -158,9 +162,6 @@ function reset() {
     startBtn.innerHTML = "Start";
   }
 }
-
-const startBtn = document.querySelector(".js-start");
-startBtn.addEventListener("click", () => start());
 
 const resetBtn = document.querySelector(".js-reset");
 resetBtn.addEventListener("click", () => reset());
